@@ -4,7 +4,7 @@ class HelloWorld extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello {this.props.name}</h1>
+        <h1 className="p-3">Hello {this.props.name}</h1>
       </div>
     );
   }
