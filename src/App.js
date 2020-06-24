@@ -1,26 +1,32 @@
 import React from "react";
-import HelloWorld from "./Components/HelloWorld";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Views/Home";
+import About from "./Views/About";
+import Product from "./Views/Product";
 
 function App() {
   return (
-    <div>
+    <div className="relative pb-10 min-h-screen">
       <Router>
         <Header />
 
-        <Switch>
-          <Route exact path="/">
-            <h1 className="font-bold text-2xl">
-              <HelloWorld name="Cobain" />
-            </h1>
-          </Route>
+        <div className="p-3">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-          <Route exact path="/about">
-            <h1 className="font-bold text-2xl">About us</h1>
-          </Route>
-        </Switch>
+            <Route exact path="/product/:id">
+              <Product />
+            </Route>
+
+            <Route exact path="/about">
+              <About />
+            </Route>
+          </Switch>
+        </div>
 
         <Footer />
       </Router>
